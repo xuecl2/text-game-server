@@ -1,4 +1,4 @@
-import { login } from '../src/service.js'
+import { login } from '../src/service/account.js'
 
 
 export default {

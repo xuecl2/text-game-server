@@ -1,4 +1,4 @@
-import { armies, armyNames, sessions } from "../global/global"
+import { armies, armyNames, sessions } from "../global/global.js"
 import { v1 as uuid } from 'uuid'
 
 const moduleCode = '001'
