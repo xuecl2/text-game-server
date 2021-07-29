@@ -11,6 +11,10 @@ wss.on('connection', ws => {
     ws.on('message', message => {
         try{
             console.log('请求报文：' + message)
+            if(message === 'HeartBeat') {
+                ws.send('HeartBeat')
+                return
+            }
             const req = JSON.parse(message)
             const tradecode = req?.head?.tradecode
             const servlet = router[tradecode]
