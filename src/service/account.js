@@ -6,6 +6,8 @@ import utils from '../utils/service-utils.js'
 import { registApi } from "../apis/accountApi.js"
 
 const moduleCode = '001'
+// code 001-字段校验失败
+// code 002-用户名或密码错误
 
 export function login(req, ws) {
     const name = req.name
@@ -13,7 +15,7 @@ export function login(req, ws) {
     if(!name || !passwd) return utils.getBusFailureRsp(moduleCode + '001', '用户名或密码不能为空！')
     if(!armies.get(armyNames.get(name)) || armies.get(armyNames.get(name)).passwd !== passwd) return utils.getBusFailureRsp(moduleCode + '002', '用户名或密码错误！')
     if(name && armies.get(armyNames.get(name)).passwd) {
-        const userId = armyNames.get(name)
+        const userId = armyNames.id
         const sessionId = uuid()
         const army = armies.get(userId)
         sessions.set(sessionId, userId)

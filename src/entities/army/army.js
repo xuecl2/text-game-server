@@ -19,7 +19,7 @@ export default class Army {
     constructor(name, passWd, hero) {
         this.name = name
         this.passWd = passWd
-        this.heros.set(hero.id)=hero
+        this.heros.set(hero.id, hero)
         this.battleTeam.add(hero)
     }
 
