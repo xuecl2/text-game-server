@@ -13,11 +13,9 @@ export default class Army {
     magicStone = 0
     npcs = new Set()
     quests = new Set()
-    teamInvitation = new Set()
     openedDungeons = new Set()
-    currentDungeons = null
-    battleLog = ''
-    tipsLog = ''
+    currentDungeon = null
+    msgQueue = []
     constructor(name, passWd, hero) {
         this.name = name
         this.passWd = passWd

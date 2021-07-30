@@ -3,6 +3,7 @@ import { v1 as uuid } from 'uuid'
 import Army from "../entities/army/army.js"
 import Hero from "../entities/roles/hero/hero.js"
 import utils from '../utils/service-utils.js' 
+import { registApi } from "../apis/accountApi.js"
 
 const moduleCode = '001'
 
@@ -17,7 +18,7 @@ export function login(req, ws) {
         const army = armies.get(userId)
         sessions.set(sessionId, userId)
         army.ws = ws
-        return utils.getSuccessRsp(JSON.stringify({sessionId, army}))
+        return utils.getSuccessRsp(JSON.stringify(new registApi(sessionId, army))))
     }
 }
 
@@ -30,10 +31,9 @@ export function regist(req, ws) {
     if(!gender) return utils.getBusFailureRsp(moduleCode + '001', '性别不能为空')
     if(!name) return utils.getBusFailureRsp(moduleCode + '001', '姓名不能为空')
     if(!passwd) return utils.getBusFailureRsp(moduleCode + '001', '密码不能为空')
-    const hero = Hero.getHeroInstance(className, gender)
-    const army = Army.getArmyInstance(name, passwd, hero)
+    const army = Army.getArmyInstance(name, passwd, Hero.getHeroInstance(className, gender))
     army.ws = ws
     const sessionId = uuid()
     sessions.set(sessionId, userId)
-    return utils.getSuccessRsp(JSON.stringify({sessionId, army}))
+    return utils.getSuccessRsp(JSON.stringify(new registApi(sessionId, army)))
 }
