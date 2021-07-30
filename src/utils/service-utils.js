@@ -19,7 +19,7 @@ function getSuccessRsp(body){
     return {
         head: {
             rspCode: SUCCESS_CODE, 
-            resultMessage: '交易成功'
+            rspMessage: '交易成功'
         },
         body: body,
     }
@@ -29,7 +29,7 @@ function getBusFailureRsp(code, msg, body) {
     return {
         head: {
             rspCode: BUSI_ERR_FLAG + code,
-            resultMessage: msg,
+            rspMessage: msg,
         },
         body: body,
     }   
@@ -39,7 +39,7 @@ function getUnknowTecFailureRsp(code, msg, body) {
     return {
         head: {
             rspCode: UNKNOW_TEC_ERR_CODE,
-            resultMessage: UNKNOW_TEC_ERR_MSG,
+            rspMessage: UNKNOW_TEC_ERR_MSG,
         },
         body: body,
     }   
@@ -49,7 +49,7 @@ function getTecFailureRsp(code, msg, body) {
     return {
         head: {
             rspCode: TEC_ERR_FLAG + code,
-            resultMessage: msg,
+            rspMessage: msg,
         },
         body: body,
     }   
