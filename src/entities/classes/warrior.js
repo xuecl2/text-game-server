@@ -2,7 +2,7 @@ import Berserker from './berserker'
 import Knight from './knight'
 import Status from '../status/status'
 
-class Warrior {
+export default class Warrior {
     name = '战士'
     avaliableLv = '1'
     previousClass = null

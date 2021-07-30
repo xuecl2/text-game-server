@@ -2,7 +2,7 @@ import Ranger from './ranger'
 import Hunter from './knight'
 import Status from '../status/status'
 
-class Warrior {
+export default class Warrior {
     name = '弓箭手'
     avaliableLv = '1'
     previousClass = null

@@ -1,4 +1,4 @@
-class Witch {
+export default class Witch {
     name = '魔女'
     avaliableLv = '1'
     previousClass = null

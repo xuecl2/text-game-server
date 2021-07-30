@@ -1,6 +1,6 @@
 import webSocket from 'ws'
 import router from './routes/index.js'
-import utils from './src/utils/serviceUtils.js'
+import utils from './src/utils/service-utils.js'
 import { wsPort } from './config/config.js'
 
 const { Server: WebSocketServer } = webSocket

@@ -2,7 +2,7 @@ import Wizard from './wizard'
 import Warlock from './warlock'
 import Status from '../status/status'
 
-class Maga {
+export default class Maga {
     name = '魔术师'
     avaliableLv = '1'
     previousClass = null

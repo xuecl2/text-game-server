@@ -1,4 +1,6 @@
-class Army {
+import { getProxyInstance } from "../../utils/event-utils"
+
+export default class Army {
     id = ''
     name = ''
     passWd = ''
@@ -16,8 +18,15 @@ class Army {
     currentDungeons = null
     battleLog = ''
     tipsLog = ''
-    constructor(name, passWd) {
+    constructor(name, passWd, hero) {
         this.name = name
         this.passWd = passWd
+        this.heros.set(hero.id)=hero
+        this.battleTeam.add(hero)
     }
+
+    static getArmyInstance(name, passWd, hero) {
+        return getProxyInstance(new Army(name, passWd, hero))
+    }
+
 }
