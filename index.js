@@ -10,11 +10,11 @@ const moduleCode = '000'
 wss.on('connection', ws => {
     ws.on('message', message => {
         try{
-            console.log('请求报文：' + message)
             if(message === 'HeartBeat') {
                 ws.send('HeartBeat')
                 return
             }
+            console.log('请求报文：' + message)
             const req = JSON.parse(message)
             const tradecode = req?.head?.tradecode
             const servlet = router[tradecode]
@@ -22,9 +22,9 @@ wss.on('connection', ws => {
                 ws.send(utils.getFailureRsp(moduleCode + '001', tradecode + '没有对应的服务'))
                 return
             }
-            let rsp = servlet(req, ws)
+            let rsp = servlet(req.body, ws)
             const defaultRspHeader = {
-                uuid: req.uuid,
+                uuid: req.head.uuid,
                 timeStamp: new Date().getTime(),
                 tradecode: tradecode,
             }
