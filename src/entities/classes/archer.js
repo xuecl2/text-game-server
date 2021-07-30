@@ -1,6 +1,6 @@
-import Ranger from './ranger'
-import Hunter from './knight'
-import Status from '../status/status'
+// import Ranger from './ranger'
+// import Hunter from './knight'
+import Status from '../status/status.js'
 
 export default class Warrior {
     name = '弓箭手'

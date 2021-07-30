@@ -1,4 +1,4 @@
-import NormalAttack from '../skills/normalAttack'
+import NormalAttack from '../skills/normalAttack.js'
 
 export default class Role {
     roleType = ''

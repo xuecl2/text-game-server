@@ -1,6 +1,6 @@
-import Wizard from './wizard'
-import Warlock from './warlock'
-import Status from '../status/status'
+// import Wizard from './wizard'
+// import Warlock from './warlock'
+import Status from '../status/status.js'
 
 export default class Maga {
     name = '魔术师'

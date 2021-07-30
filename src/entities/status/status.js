@@ -1,4 +1,4 @@
-class Status {
+export default class Status {
     hp = 0
     mp = 0
     physicAtk = 0

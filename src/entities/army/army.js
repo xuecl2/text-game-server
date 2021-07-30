@@ -1,4 +1,4 @@
-import { getProxyInstance } from "../../utils/event-utils"
+import { getProxyInstance } from "../../utils/event-utils.js"
 
 export default class Army {
     id = ''
