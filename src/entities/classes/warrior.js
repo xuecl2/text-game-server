@@ -1,12 +1,12 @@
 // import Berserker from './berserker
-// 'import Knight from './knight'
+// import Knight from './knight'
 import Status from '../status/status.js'
 
 export default class Warrior {
     name = '战士'
     avaliableLv = '1'
     previousClass = null
-    nextClasses = new Set(Berserker, Knight)
+    // nextClasses = new Set(Berserker, Knight)
     classStage = 1
     desc = '强壮的战士，可以使用盾牌保护队友，也可以重击敌人'
     growth = new Status()

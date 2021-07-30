@@ -6,6 +6,7 @@ import { wsPort } from './config/config.js'
 const { Server: WebSocketServer } = webSocket
 const wss = new WebSocketServer({ port: wsPort })
 const moduleCode = '000'
+// code: 001- 没有对应服务
 
 wss.on('connection', ws => {
     ws.on('message', message => {
@@ -19,7 +20,7 @@ wss.on('connection', ws => {
             const tradecode = req?.head?.tradecode
             const servlet = router[tradecode]
             if(!servlet){
-                ws.send(utils.getFailureRsp(moduleCode + '001', tradecode + '没有对应的服务'))
+                ws.send(utils.getBusFailureRsp(moduleCode + '001', tradecode + '没有对应的服务'))
                 return
             }
             let rsp = servlet(req.body, ws)
@@ -30,8 +31,10 @@ wss.on('connection', ws => {
             }
             rsp.head = {...defaultRspHeader, ...rsp.head}
             rsp.body = rsp.body ?? {}
+            console.log('响应报文: ' + JSON.stringify(rsp))
             ws.send(JSON.stringify(rsp))
         }catch(err){
+            ws.send(JSON.stringify(utils.getUnknowTecFailureRsp()))
             console.error(err)
         }
     })

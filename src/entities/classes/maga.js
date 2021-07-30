@@ -6,7 +6,7 @@ export default class Maga {
     name = '魔术师'
     avaliableLv = '1'
     previousClass = null
-    nextClasses = new Set(Wizard, Warlock)
+    // nextClasses = new Set(Wizard, Warlock)
     classStage = 1
     desc = '自身很脆弱，但可以使用魔力保护队友和攻击敌人'
     growth = new Status()

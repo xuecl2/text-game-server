@@ -6,7 +6,7 @@ export default class Warrior {
     name = '弓箭手'
     avaliableLv = '1'
     previousClass = null
-    nextClasses = new Set(Ranger, Hunter)
+    // nextClasses = new Set(Ranger, Hunter)
     classStage = 1
     desc = '使用弓箭的能手，消耗箭矢造成大量伤害'
     growth = new Status()

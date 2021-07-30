@@ -11,8 +11,6 @@ const SUCCESS_CODE = '000000'
 const UNKNOW_TEC_ERR_CODE = 'T999999'
 const UNKNOW_TEC_ERR_MSG = '未知错误'
 
-// 001: 请求字段校验错误
-
 // code说明: 信息类型(1位) + 模块(3位) + 序号(3位)
 
 function getSuccessRsp(body){

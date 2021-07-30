@@ -9,6 +9,7 @@ export default class Hero extends Role {
     equipments = new Map()
     rare = 'R'
     constructor(heroClassName, gender) {
+        super()
         this.heroClass = heroClass.getClassInstance(heroClassName)
         if(!gender) gender = getRandomElement(['male', 'female'])
         this.gender = gender
