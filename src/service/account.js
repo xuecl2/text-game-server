@@ -36,6 +36,6 @@ export function regist(req, ws) {
     const army = Army.getArmyInstance(name, passwd, Hero.getHeroInstance(className, gender))
     army.ws = ws
     const sessionId = uuid()
-    sessions.set(sessionId, userId)
+    sessions.set(sessionId, army.id)
     return utils.getSuccessRsp(JSON.stringify(new registApi(sessionId, army)))
 }
