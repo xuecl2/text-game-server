@@ -5,7 +5,7 @@ export default {
 }
 
 export function getProxyInstance(obj) {
-    obj.id = obj.id ?? uuid()
+    obj.id = obj.id || uuid()
     const proxy = new Proxy(obj, {
         get: (target, propKey) => {
             if (propKey === 'dispatch') return dispatch
