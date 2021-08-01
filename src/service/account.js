@@ -1,5 +1,5 @@
 import { armies, armyNames, sessions } from "../global/global.js"
-import { v1 as uuid } from 'uuid'
+import { v4 as uuid } from 'uuid'
 import Army from "../entities/army/army.js"
 import Hero from "../entities/roles/hero/hero.js"
 import utils from '../utils/service-utils.js' 
