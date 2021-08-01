@@ -3,7 +3,7 @@ import { getProxyInstance } from "../../utils/event-utils.js"
 export default class Army {
     id = ''
     name = ''
-    passWd = ''
+    passwd = ''
     heros = new Map()
     bag = new Set()
     alias = new Set()
@@ -16,15 +16,15 @@ export default class Army {
     openedDungeons = new Set()
     currentDungeon = null
     msgQueue = []
-    constructor(name, passWd, hero) {
+    constructor(name, passwd, hero) {
         this.name = name
-        this.passWd = passWd
+        this.passwd = passwd
         this.heros.set(hero.id, hero)
         this.battleTeam.add(hero)
     }
 
-    static getArmyInstance(name, passWd, hero) {
-        return getProxyInstance(new Army(name, passWd, hero))
+    static getArmyInstance(name, passwd, hero) {
+        return getProxyInstance(new Army(name, passwd, hero))
     }
 
 }
