@@ -1,7 +1,6 @@
 import { armies, armyNames, sessions } from "../global/global.js"
 import { v4 as uuid } from 'uuid'
 import Army from "../entities/army/army.js"
-import Hero from "../entities/roles/hero/hero.js"
 import utils from '../utils/service-utils.js' 
 import { registApi } from "../apis/accountApi.js"
 
@@ -10,13 +9,12 @@ const moduleCode = '001'
 // code 002-用户名或密码错误
 
 export function login(req, ws) {
-    console.log(armies, armyNames, sessions)
-    const name = req.name
+    const account = req.account
     const passwd = req.passwd
-    if(!name || !passwd) return utils.getBusFailureRsp(moduleCode + '001', '用户名或密码不能为空！')
-    if(!armies.get(armyNames.get(name)) || armies.get(armyNames.get(name)).passwd !== passwd) return utils.getBusFailureRsp(moduleCode + '002', '用户名或密码错误！')
-    if(name && armies.get(armyNames.get(name)).passwd) {
-        const userId = armyNames.get(name)
+    if(!account || !passwd) return utils.getBusFailureRsp(moduleCode + '001', '账号或密码不能为空！')
+    if(!armies.get(armyNames.get(account)) || armies.get(armyNames.get(account)).passwd !== passwd) return utils.getBusFailureRsp(moduleCode + '002', '用户名或密码错误！')
+    if(account && armies.get(armyNames.get(account)).passwd) {
+        const userId = armyNames.get(account)
         const sessionId = uuid()
         const army = armies.get(userId)
         sessions.set(sessionId, userId)
@@ -26,18 +24,13 @@ export function login(req, ws) {
 }
 
 export function regist(req, ws) {
-    const className = req.className 
-    const gender = req.gender
-    const name = req.name
+    const account = req.account
     const passwd = req.passwd
-    if(!className) return utils.getBusFailureRsp(moduleCode + '001', '职业不能为空')
-    if(!gender) return utils.getBusFailureRsp(moduleCode + '001', '性别不能为空')
-    if(!name) return utils.getBusFailureRsp(moduleCode + '001', '姓名不能为空')
+    if(!account) return utils.getBusFailureRsp(moduleCode + '001', '账号不能为空')
     if(!passwd) return utils.getBusFailureRsp(moduleCode + '001', '密码不能为空')
-    // console.log(armyNames.get(name))
-    if(armyNames.get(name)) return utils.getBusFailureRsp(moduleCode + '003', '名称已被注册，请重新输入！')
-    const army = Army.getArmyInstance(name, passwd, Hero.getHeroInstance(className, gender))
-    armyNames.set(name, army.id)
+    if(armyNames.get(account)) return utils.getBusFailureRsp(moduleCode + '003', '账号已被注册，请重新输入！')
+    const army = Army.getArmyInstance(account, passwd)
+    armyNames.set(account, army.id)
     armies.set(army.id, army)
     army.ws = ws
     const sessionId = uuid()
