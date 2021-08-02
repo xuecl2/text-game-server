@@ -1,0 +1,3 @@
+getAreaInfo(areaid) {
+    
+}
