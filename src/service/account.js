@@ -2,7 +2,7 @@ import { armies, armyNames, sessions } from "../global/global.js"
 import { v4 as uuid } from 'uuid'
 import Army from "../entities/army/army.js"
 import utils from '../utils/service-utils.js' 
-import { registApi } from "../apis/accountApi.js"
+import { registApi } from "../apis/account-api.js"
 
 const moduleCode = '001'
 // code 001-字段校验失败
