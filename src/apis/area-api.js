@@ -1,5 +1,5 @@
-export class registApi {
-    constructor(sessionid, army) {
+export class moveToApi {
+    constructor(area) {
         this.sessionid = sessionid
         this.army = {}
         this.army.id = army.id
