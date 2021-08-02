@@ -38,6 +38,16 @@ export class Area {
         this.destiny.armies.add(army)
     }
 
+    getOnlandAreaInfo() {
+        // todo
+        Object.keys(this.onlandAreasConnection).map(direction => {
+            if(direction === 'east') deltaCoordinate = [1, 0] 
+            if(direction === 'west') deltaCoordinate = [-1, 0] 
+            if(direction === 'south') deltaCoordinate = [0, -1] 
+            if(direction === 'north') deltaCoordinate = [0, 1] 
+        })
+    }
+
     static getAreaInstance(name, areaType, coordinate, map) {
         return getProxyInstance(new Area(name, areaType, coordinate, map))
     }

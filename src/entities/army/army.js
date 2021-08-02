@@ -1,7 +1,7 @@
 import { getProxyInstance } from "../../utils/event-utils.js"
+import { map } from "../../global/map.js"
 
 export default class Army {
-    id = ''
     account = ''
     passwd = ''
     heros = new Map()
@@ -15,6 +15,7 @@ export default class Army {
     quests = new Set()
     openedDungeons = new Set()
     currentDungeon = null
+    area = map[0][0]
     msgQueue = []
     constructor(account, passwd) {
         this.account = account
