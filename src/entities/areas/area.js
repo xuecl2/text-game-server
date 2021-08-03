@@ -14,11 +14,10 @@ export class Area {
         north: true,
     }
 
-    constructor(name, areaType, coordinate, map) {
+    constructor(name, areaType, coordinate) {
         this.name = name
         this.areaType = areaType
         this.coordinate = coordinate
-        map.setArea(coordinate, this)
     }
 
     exsitArmy(army) {
@@ -26,29 +25,30 @@ export class Area {
     }
 
     moveTo(army, direction) {
-        if(!this.onlandAreasConnection[direction]) return
-        let deltaCoordinate = []
-        if(direction === 'east') deltaCoordinate = [1, 0] 
-        if(direction === 'west') deltaCoordinate = [-1, 0] 
-        if(direction === 'south') deltaCoordinate = [0, -1] 
-        if(direction === 'north') deltaCoordinate = [0, 1] 
-        const destiny = map[this.coordinate[0] + deltaCoordinate[0]] && map[this.coordinate[0] + deltaCoordinate[0]][this.coordinate[1] + deltaCoordinate[1]]
-        if(!destiny) return
+        const destiny = this.getOnlandAreaInfo()[direction]
+        if(!destiny) return null
         this.armies.delete(army)
         this.destiny.armies.add(army)
+        return destiny
     }
 
     getOnlandAreaInfo() {
-        // todo
-        Object.keys(this.onlandAreasConnection).map(direction => {
-            if(direction === 'east') deltaCoordinate = [1, 0] 
-            if(direction === 'west') deltaCoordinate = [-1, 0] 
-            if(direction === 'south') deltaCoordinate = [0, -1] 
-            if(direction === 'north') deltaCoordinate = [0, 1] 
-        })
+        let onlandAreaInfo = {}
+        for(let key in this.onlandAreasConnection) {
+            if(key === 'east') deltaCoordinate = [1, 0] 
+            if(key === 'west') deltaCoordinate = [-1, 0] 
+            if(key === 'south') deltaCoordinate = [0, -1] 
+            if(key === 'north') deltaCoordinate = [0, 1] 
+            const onlandArea = map[this.coordinate[0] + deltaCoordinate[0]] && map[this.coordinate[0] + deltaCoordinate[0]][this.coordinate[1] + deltaCoordinate[1]]
+            if(this.onlandAreasConnection[key] && onlandArea) {
+                onlandAreaInfo[key] = onlandArea
+            }
+        }
     }
 
-    static getAreaInstance(name, areaType, coordinate, map) {
-        return getProxyInstance(new Area(name, areaType, coordinate, map))
+    static getAreaInstance(name, areaType, coordinate) {
+        const area = getProxyInstance(new Area(name, areaType, coordinate))
+        map.setArea(coordinate, area)
+        return area
     }
 }
