@@ -8,7 +8,7 @@ const moduleCode = '001'
 // code 001-字段校验失败
 // code 002-用户名或密码错误
 
-export function login(req, ws) {
+export function login(sessionId, req, ws) {
     const account = req.account
     const passwd = req.passwd
     if(!account || !passwd) return utils.getBusFailureRsp(moduleCode + '001', '账号或密码不能为空！')
@@ -23,7 +23,7 @@ export function login(req, ws) {
     }
 }
 
-export function regist(req, ws) {
+export function regist(sessionId1, req, ws) {
     const account = req.account
     const passwd = req.passwd
     if(!account) return utils.getBusFailureRsp(moduleCode + '001', '账号不能为空')

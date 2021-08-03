@@ -14,6 +14,6 @@ export class registApi {
         this.army.openedDungeons = [...army.openedDungeons].map(dungeon => dungeon.id)
         this.army.currentDungeon = army.currentDungeon
         this.army.msgQueue = army.msgQueue
-        this.army.area = army.area.id
+        this.army.area = army.area.coordinate
     }
 }

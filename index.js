@@ -23,7 +23,7 @@ wss.on('connection', ws => {
                 ws.send(utils.getBusFailureRsp(moduleCode + '001', tradecode + '没有对应的服务'))
                 return
             }
-            let rsp = servlet(req.body, ws)
+            let rsp = servlet(req.head?.sessionId, req.body, ws)
             const defaultRspHeader = {
                 uuid: req.head.uuid,
                 timeStamp: new Date().getTime(),
