@@ -1,4 +1,4 @@
-import { Area } from "../entities/areas/area";
+import { Area } from "../entities/areas/area.js";
 
 export const map = []
 map.setArea = function(coordinate, area) {
