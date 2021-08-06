@@ -6,7 +6,7 @@ export class areaInfoApi {
         this.armies = area.armies.map(army => army.id)
         this.coordinate = area.coordinate
         this.onlandAreas = {}
-        onlandAreas = area.getOnlandAreaInfo
+        onlandAreas = area.getOnlandAreaInfo()
         for(let key in onlandAreas) {
             if(onlandAreas[key]) this.onlandAreas[key] = onlandAreas[key].name
         }

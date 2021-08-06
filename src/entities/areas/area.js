@@ -33,7 +33,7 @@ export class Area {
     }
 
     getOnlandAreaInfo() {
-        let onlandAreaInfo = {}
+        let onlandAreas = {}
         for(let key in this.onlandAreasConnection) {
             if(key === 'east') deltaCoordinate = [1, 0] 
             if(key === 'west') deltaCoordinate = [-1, 0] 
@@ -41,9 +41,10 @@ export class Area {
             if(key === 'north') deltaCoordinate = [0, 1] 
             const onlandArea = map.getArea([this.coordinate[0] + deltaCoordinate[0], this.coordinate[1] + deltaCoordinate[1]])
             if(this.onlandAreasConnection[key] && onlandArea) {
-                onlandAreaInfo[key] = onlandArea
+                onlandAreas[key] = onlandArea
             }
         }
+        return onlandAreas
     }
 
     static getAreaInstance(name, areaType, coordinate) {
