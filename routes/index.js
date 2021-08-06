@@ -5,8 +5,8 @@ import { getCurrentArea, moveTo } from '../src/service/area.js'
 export default {
   login,
   regist,
-  get_current_area: getServlet(getCurrentArea), 
-  move_to: getServlet(moveTo),
+  'get-current-area': getServlet(getCurrentArea), 
+  'move-to': getServlet(moveTo),
 }
 
 function getServlet(func) {
