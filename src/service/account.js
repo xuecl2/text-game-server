@@ -19,7 +19,7 @@ export function login(sessionId, req, ws) {
         const army = armies.get(userId)
         sessions.set(sessionId, userId)
         army.ws = ws
-        return utils.getSuccessRsp(JSON.stringify(new registApi(sessionId, army)))
+        return utils.getSuccessRsp(new registApi(sessionId, army))
     }
 }
 
@@ -35,5 +35,5 @@ export function regist(sessionId1, req, ws) {
     army.ws = ws
     const sessionId = uuid()
     sessions.set(sessionId, army.id)
-    return utils.getSuccessRsp(JSON.stringify(new registApi(sessionId, army)))
+    return utils.getSuccessRsp(new registApi(sessionId, army))
 }
