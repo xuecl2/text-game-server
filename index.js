@@ -34,7 +34,14 @@ wss.on('connection', ws => {
             console.log('响应报文: ' + JSON.stringify(rsp))
             ws.send(JSON.stringify(rsp))
         }catch(err){
-            ws.send(JSON.stringify(utils.getUnknowTecFailureRsp()))
+            const rsp = utils.getUnknowTecFailureRsp()
+            try{
+                const uuid = JSON.parse(message).head?.uuid
+                rsp.head.uuid = uuid
+            }catch(err) {
+               rsp.head.uuid = '00000000'
+            }
+            ws.send(JSON.stringify(rsp))
             console.error(err)
         }
     })

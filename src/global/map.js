@@ -6,7 +6,7 @@ map.setArea = function(coordinate, area) {
     map[coordinate[0]][coordinate[1]] = area
 }
 map.getArea = function (coordinate) {
-    return map[coordinate[0]] && map[coordinatep[0]][coordinate[1]]
+    return map[coordinate[0]] && map[coordinate[0]][coordinate[1]]
 }
 
 Area.getAreaInstance('起始之村', 'safe', [0, 0])

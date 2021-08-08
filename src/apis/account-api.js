@@ -1,6 +1,6 @@
 export class registApi {
-    constructor(sessionid, army) {
-        this.sessionid = sessionid
+    constructor(sessionId, army) {
+        this.sessionId = sessionId
         this.army = {}
         this.army.id = army.id
         this.army.account = army.account

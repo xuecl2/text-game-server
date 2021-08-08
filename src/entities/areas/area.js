@@ -34,6 +34,7 @@ export class Area {
 
     getOnlandAreaInfo() {
         let onlandAreas = {}
+        let deltaCoordinate = [0, 0]
         for(let key in this.onlandAreasConnection) {
             if(key === 'east') deltaCoordinate = [1, 0] 
             if(key === 'west') deltaCoordinate = [-1, 0] 
