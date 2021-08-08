@@ -5,7 +5,7 @@ export class Area {
     name = ''
     areaType = 'safe' 
     armies = new Set()
-    monsters = new Map()
+    monsters = new Set()
     coordinate = [0, 0]
     onlandAreasConnection = {
         east: true,
@@ -20,7 +20,7 @@ export class Area {
         this.coordinate = coordinate
     }
 
-    exsitArmy(army) {
+    existArmy(army) {
         if(this.armies.has(army)) return true
     }
 
