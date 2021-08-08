@@ -15,11 +15,12 @@ export default class Army {
     quests = new Set()
     openedDungeons = new Set()
     currentDungeon = null
-    area = map[0][0]
+    area = null
     msgQueue = []
     constructor(account, passwd) {
         this.account = account
         this.passwd = passwd
+        map[0][0].addArmy(this)
     }
 
     static getArmyInstance(account, passwd) {
