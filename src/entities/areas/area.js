@@ -28,7 +28,8 @@ export class Area {
         const destiny = this.getOnlandAreaInfo()[direction]
         if(!destiny) return null
         this.armies.delete(army)
-        this.destiny.armies.add(army)
+        destiny.armies.add(army)
+        army.area = destiny
         return destiny
     }
 

@@ -11,10 +11,11 @@ export function getCurrentArea(army) {
     return utils.getSuccessRsp(new areaInfoApi(area))
 }
 
-export function moveTo(sessionId, direction) {
-    const area = map.getArea(coordinate)
+export function moveTo(army, req) {
+    const direction = req.direction
+    const area = army.area
     if(!area) return utils.getBusFailureRsp(moduleCode + '001', '不存在的坐标')
-    const destiny = area.moveTo(direction)
+    const destiny = area.moveTo(army, direction)
     if(!destiny) return utils.getBusFailureRsp(moduleCode + '002', '移动失败，不正确的方向！')
     return utils.getSuccessRsp(new areaInfoApi(destiny))
 }

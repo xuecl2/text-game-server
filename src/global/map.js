@@ -11,4 +11,4 @@ map.getArea = function (coordinate) {
 
 Area.getAreaInstance('起始之村', 'safe', [0, 0])
 Area.getAreaInstance('林间小路', 'safe', [0, 1])
-Area.getAreaInstance('月影之村', 'safe', [0, 2])
+Area.getAreaInstance('月影之森', 'safe', [0, 2])
