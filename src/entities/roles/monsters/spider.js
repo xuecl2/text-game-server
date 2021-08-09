@@ -6,13 +6,12 @@ export default class Spider extends Monster {
     constructor() {
         this.race = 'insect'
         this.monsterClass = 'spider'
-        this.initialStatus = 
-        this.elementDamageRate = {
-            fire: 1.2,
-            ice: 1,
-            thunder: 1,
-            wind: 1
-        }
+        this.rank = 'normal'
+        this.initialStatus = new Status({
+            hp: 50,
+            physicAtk: 10,
+            fireDef: 0.8,
+        })
     }
 
     static getSpiderInstance() {

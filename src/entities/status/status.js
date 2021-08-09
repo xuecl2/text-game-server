@@ -18,4 +18,8 @@ export default class Status {
     iceDef = 1
     thunderDef = 1
     windDef = 1
+
+    constructor(status) {
+        this = {...this, ...status}
+    }
 }
