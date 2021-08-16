@@ -4,6 +4,12 @@ export class areaInfoApi {
         this.name = area.name
         this.areaTYpe = area.areaTYpe
         this.armies = [...area.armies].map(army => army.id)
+        this.monsters = [...area.monsters].map(monster => ({
+            id: monster.id,
+            currentHp: monster.currentHp,
+            monsterClass: monster.monsterClass,
+            rank: monster.rank,
+        }))
         this.coordinate = area.coordinate
         this.onlandAreas = {}
         const onlandAreas = area.getOnlandAreaInfo()

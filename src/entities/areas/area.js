@@ -1,5 +1,6 @@
 import { getProxyInstance } from "../../utils/event-utils.js"
 import { map } from "../../global/map.js"
+import { WILD_MONSTER_GENERATE_INTERVAL } from "../../global/const.js"
 
 export class Area {
     name = ''
@@ -13,11 +14,14 @@ export class Area {
         south: true,
         north: true,
     }
+    generateMonstersInterval = null
 
-    constructor(name, areaType, coordinate) {
+    constructor(name, areaType, coordinate, config) {
         this.name = name
         this.areaType = areaType
         this.coordinate = coordinate
+        if(config.generateMonsters) this.generateMonsters = config.generateMonsters
+        this.generateMonstersInterval = setInterval(() => this.generateMonsters(), WILD_MONSTER_GENERATE_INTERVAL)
     }
 
     existArmy(army) {
@@ -53,8 +57,10 @@ export class Area {
         return onlandAreas
     }
 
-    static getAreaInstance(name, areaType, coordinate) {
-        const area = getProxyInstance(new Area(name, areaType, coordinate))
+    generateMonsters() {}
+
+    static getAreaInstance(name, areaType, coordinate, config) {
+        const area = getProxyInstance(new Area(name, areaType, coordinate, config))
         map.setArea(coordinate, area)
         return area
     }
