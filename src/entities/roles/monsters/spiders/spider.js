@@ -1,4 +1,4 @@
-import Monster from '../monster'
+import Monster from '../monster.js'
 import { getProxyInstance } from "../../utils/event-utils.js"
 import Status from '../../../status/status.js'
 
