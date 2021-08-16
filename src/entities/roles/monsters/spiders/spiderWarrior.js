@@ -8,9 +8,10 @@ export default class SpiderWarrior extends Monster {
         this.monsterClass = 'spider'
         this.rank = 'elite'
         this.initialStatus = new Status({
-            hp: 250,
-            physicAtk: 10,
+            hp: 3000,
+            physicAtk: 100,
             fireDefRate: 0.8,
+            physicDef: 50,
         })
     }
 

@@ -8,7 +8,7 @@ export default class Spider extends Monster {
         this.monsterClass = 'spider'
         this.rank = 'normal'
         this.initialStatus = new Status({
-            hp: 50,
+            hp: 500,
             physicAtk: 10,
             fireDefRate: 0.8,
         })
