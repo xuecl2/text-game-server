@@ -14,7 +14,7 @@ export default class Spider extends Monster {
         })
     }
 
-    static getSpiderInstance() {
+    static getInstance() {
         return getProxyInstance(new Spider())
     }
 }
