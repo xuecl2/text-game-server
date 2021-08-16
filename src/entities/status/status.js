@@ -20,6 +20,6 @@ export default class Status {
     windDefRate = 1
 
     constructor(status) {
-        this = {...this, ...status}
+        return {...this, ...status}
     }
 }

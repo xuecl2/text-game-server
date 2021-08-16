@@ -11,7 +11,7 @@ export function getRandomElement(elementList, weightList) {
     if(weightList.length < qty) weightList = weightList.fill(1, weightList.length, qty)
 
     const list = new Array(qty)
-    list[0] = 0
+    list[0] = weightList[0]
     for(let i=1; i<qty; i++) {
         list[i] = list[i - 1] + weightList[i]
     }
@@ -19,4 +19,5 @@ export function getRandomElement(elementList, weightList) {
     for(let i=1; i<qty; i++) {
         if(rand > list[i]) return elementList[i]
     }
+    return elementList[0]
 }

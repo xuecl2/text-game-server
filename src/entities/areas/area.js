@@ -20,7 +20,8 @@ export class Area {
         this.name = name
         this.areaType = areaType
         this.coordinate = coordinate
-        if(config.generateMonsters) this.generateMonsters = config.generateMonsters
+        if(config?.generateMonsters) this.generateMonsters = config.generateMonsters
+        this.generateMonsters()
         this.generateMonstersInterval = setInterval(() => this.generateMonsters(), WILD_MONSTER_GENERATE_INTERVAL)
     }
 

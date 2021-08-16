@@ -1,9 +1,10 @@
 import Monster from '../monster.js'
-import { getProxyInstance } from "../../utils/event-utils.js"
+import { getProxyInstance } from "../../../../utils/event-utils.js"
 import Status from '../../../status/status.js'
 
 export default class Spider extends Monster {
     constructor() {
+        super()
         this.race = 'insect'
         this.monsterClass = 'spider'
         this.rank = 'normal'
