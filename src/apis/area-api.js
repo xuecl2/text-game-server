@@ -3,7 +3,7 @@ export class areaInfoApi {
         this.id = area.id
         this.name = area.name
         this.areaTYpe = area.areaTYpe
-        this.armies = [...area.armies].map(army => army.id)
+        this.armies = [...area.armies].filter(army => army.mainHero).map(army => army.id)
         this.monsters = [...area.monsters].map(monster => ({
             id: monster.id,
             currentHp: monster.currentHp,

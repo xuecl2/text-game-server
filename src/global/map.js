@@ -35,8 +35,7 @@ Area.getAreaInstance('月影之森', 'danger', [0, 2], {
         }
 
         function generateMonster() {
-            const list = [Spider, SpiderWarrior]
-            return randonUtils.getRandomElement(list, [99, 1]).getInstance()
+            return randonUtils.getRandomElement([Spider, SpiderWarrior], [99, 1]).getInstance()
         }
     }
 })

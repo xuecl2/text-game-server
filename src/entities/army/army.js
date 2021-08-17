@@ -4,6 +4,7 @@ import { map } from "../../global/map.js"
 export default class Army {
     account = ''
     passwd = ''
+    mainHero = null
     heros = new Map()
     bag = new Set()
     alias = new Set()
@@ -26,5 +27,4 @@ export default class Army {
     static getArmyInstance(account, passwd) {
         return getProxyInstance(new Army(account, passwd))
     }
-
 }
