@@ -20,7 +20,7 @@ wss.on('connection', ws => {
             const tradecode = req?.head?.tradecode
             const servlet = router[tradecode]
             if(!servlet){
-                ws.send(utils.getBusFailureRsp(moduleCode + '001', tradecode + '没有对应的服务'))
+                ws.send(JSON.stringify(utils.getBusFailureRsp(moduleCode + '001', tradecode + '没有对应的服务')))
                 return
             }
             let rsp = servlet(req.head?.sessionId, req.body, ws)
