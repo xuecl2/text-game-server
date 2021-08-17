@@ -4,6 +4,7 @@ import { map } from "../../global/map.js"
 export default class Army {
     account = ''
     passwd = ''
+    name = ''
     mainHero = null
     heros = new Map()
     bag = new Set()
