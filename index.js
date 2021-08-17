@@ -19,16 +19,14 @@ wss.on('connection', ws => {
             const req = JSON.parse(message)
             const tradecode = req?.head?.tradecode
             const servlet = router[tradecode]
-            if(!servlet){
-                ws.send(JSON.stringify(utils.getBusFailureRsp(moduleCode + '001', tradecode + '没有对应的服务')))
-                return
-            }
-            let rsp = servlet(req.head?.sessionId, req.body, ws)
             const defaultRspHeader = {
                 uuid: req.head.uuid,
                 timeStamp: new Date().getTime(),
                 tradecode: tradecode,
             }
+            let rsp
+            if(!servlet) rsp = utils.getBusFailureRsp(moduleCode + '001', tradecode + '没有对应的服务')
+            rsp = servlet(req.head?.sessionId, req.body, ws)
             rsp.head = {...defaultRspHeader, ...rsp.head}
             rsp.body = rsp.body ?? {}
             console.log('响应报文: ' + JSON.stringify(rsp))
