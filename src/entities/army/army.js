@@ -8,7 +8,7 @@ export default class Army {
     mainHero = null
     heros = new Map()
     bag = new Set()
-    alias = new Set()
+    alias = null
     battleTeam = new Set()
     gold = 0
     armyRank = 'F'
