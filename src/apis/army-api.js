@@ -8,7 +8,7 @@ export class armyInfoApi {
             class: hero.heroClass.name,
             level: hero.level, 
         }))
-        this.alias = {id: army.alias.id, name: army.alias.name}
+        this.alias = army.alias?{id: army.alias.id, name: army.alias.name}:null
         this.battleTeam = [...army.battleTeam].map(hero => ({
             id: hero.id, 
             name: hero.name,

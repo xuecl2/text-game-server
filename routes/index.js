@@ -12,7 +12,7 @@ export default {
 function getServlet(func) {
   return (sessionId, req, ws) => {
     const army = armies.get(sessions.get(sessionId))
-    return funcreq, army, ws)
+    return func(req, army, ws)
   }
 }
 

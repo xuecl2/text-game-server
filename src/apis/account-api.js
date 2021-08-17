@@ -6,7 +6,7 @@ export class registApi {
         this.army.account = army.account
         this.army.passwd = army.passwd
         this.army.heros = [...army.heros].map(entry => entry[1].id)
-        this.army.alias = [...army.alias].map(army => army.id)
+        this.army.alias = army.alias?{id: army.alias.id, name: army.alias.name}:null
         this.army.battleTeam = [...army.battleTeam].map(army => army.id)
         this.army.gold = army.gold
         this.army.armyRank = army.armyRank
