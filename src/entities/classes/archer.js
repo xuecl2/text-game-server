@@ -2,7 +2,7 @@
 // import Hunter from './knight'
 import Status from '../status/status.js'
 
-export default class Warrior {
+export default class Archer {
     name = '弓箭手'
     avaliableLv = '1'
     previousClass = null

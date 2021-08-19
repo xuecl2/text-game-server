@@ -6,7 +6,7 @@ export default class Army {
     passwd = ''
     name = ''
     mainHero = null
-    heros = new Map()
+    heros = new Set()
     bag = new Set()
     alias = null
     battleTeam = new Set()
@@ -23,6 +23,15 @@ export default class Army {
         this.account = account
         this.passwd = passwd
         map[0][0].addArmy(this)
+    }
+
+    hireHero(hero) {
+        this.heros.add(hero)
+    }
+
+    setBattle(hero) {
+        if(!this.heros.has(hero)) throw new Error('佣兵不属于军团！')
+        this.battleTeam.add(hero)
     }
 
     static getArmyInstance(account, passwd) {
